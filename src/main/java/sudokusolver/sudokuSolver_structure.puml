@@ -1,0 +1,219 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "sudokusolver.sudokuSolver",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1701674134 { 
+   	label=sudokusolver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Area1701674134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Area</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   fields: Field[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   wasChanged: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ consecutiveFields(start: int, size: int, distance: int): Field[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ contains(value: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ contains(): boolean[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eliminateLonelyNotice()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notes: int[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notes: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseNote(note: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getField(field: int): Field</TD></TR>
+<TR><TD ALIGN="LEFT" >- nakedPairs()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ numberOfNotes(): int[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printNote(note: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ solve()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ wasChanged()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Field1701674134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Field</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   column: Area [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   note: Note [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   row: Area [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   square: Area [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   value: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   wasChanged: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ eraseLonelyNotes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(note: int[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notes: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseNote(note: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printNote(note: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ solve()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ wasChanged()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Note1701674134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Note</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   note: boolean[] [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ comparison(Method: char, note1: Note, note2: Note): Note</TD></TR>
+<TR><TD ALIGN="LEFT" >+ contains(note: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notesToErase: int[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseNote(i: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ numberOfNotes(): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Sudoku1701674134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Sudoku</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   columns: Area[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   fields: Field[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rows: Area[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   squares: Area[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   valueArray: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   wasChanged: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notes: int[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseMultipleNotes(notes: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ eraseNote(note: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printNotes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printValues()</TD></TR>
+<TR><TD ALIGN="LEFT" >- progress(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- skim()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ solve(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ wasChanged()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+sudokuSolver1701674134[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)sudokuSolver</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Area1701674134 -> Field1701674134[label="fields
+[0..*]"];
+Field1701674134 -> Area1701674134[label="column
+[0..1]"];
+Field1701674134 -> Area1701674134[label="row
+[0..1]"];
+Field1701674134 -> Area1701674134[label="square
+[0..1]"];
+Field1701674134 -> Note1701674134[label="note
+[0..1]"];
+Sudoku1701674134 -> Area1701674134[arrowhead=none];
+Sudoku1701674134 -> Field1701674134[arrowhead=none];
+    
+}
+@enduml
